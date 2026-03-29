@@ -1,21 +1,19 @@
 # Use the official PHP with Apache image
 FROM php:8.2-apache
 
-# Install system dependencies and enable mod_rewrite
+# Install PostgreSQL driver and system dependencies
 RUN apt-get update && apt-get install -y \
     libpq-dev \
-    && docker-php-ext-install pdo pdo_mysql \
+    && docker-php-ext-install pdo pdo_pgsql \
     && a2enmod rewrite
 
-# Configure Apache to use the 'public' folder as the root (adjust if your entry point is different)
-# Since your index.php is in the root, we'll set the document root to /var/www/html
-# If you move files to a 'public' folder, change the line below to: /var/www/html/public
+# Configure Apache
 RUN sed -i 's|/var/www/html|/var/www/html|g' /etc/apache2/sites-available/000-default.conf
 
 # Set the working directory
 WORKDIR /var/www/html
 
-# Copy all your project files into the container
+# Copy all your project files
 COPY . /var/www/html
 
 # Set permissions
