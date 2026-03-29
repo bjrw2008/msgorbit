@@ -1,14 +1,15 @@
 <?php
 session_start();
 
-define('DB_HOST', 'localhost');
-define('DB_USER', 'root');
-define('DB_PASS', '');
-define('DB_NAME', 'bj_auto_messages');
+PGHOST = dpg-d74hh9h4tr6s73cpafn0-a
+PGPORT = 5432
+PGUSER = bj_auto_db_user
+PGPASSWORD = SHJroyk6rwE8NALG5HWV4Ssx9RPi1pUN
+PGDATABASE = bj_auto_db
 
 try {
     $pdo = new PDO(
-        "mysql:host=" . DB_HOST . ";dbname=" . DB_NAME . ";charset=utf8mb4",
+        "pgsql:host=" . DB_HOST . ";port=" . DB_PORT . ";dbname=" . DB_NAME . ";",
         DB_USER,
         DB_PASS,
         [
