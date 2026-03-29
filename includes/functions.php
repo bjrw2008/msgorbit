@@ -8,22 +8,26 @@ function sanitizeInput($data) {
 
 function getBotCount($pdo) {
     $stmt = $pdo->query("SELECT COUNT(*) as count FROM bots");
-    return $stmt->fetch()['count'];
+    $result = $stmt->fetch();
+    return $result['count'];
 }
 
 function getChannelCount($pdo) {
     $stmt = $pdo->query("SELECT COUNT(*) as count FROM channels");
-    return $stmt->fetch()['count'];
+    $result = $stmt->fetch();
+    return $result['count'];
 }
 
 function getPendingPostsCount($pdo) {
     $stmt = $pdo->query("SELECT COUNT(*) as count FROM posts WHERE status = 'pending' AND scheduled_time <= NOW()");
-    return $stmt->fetch()['count'];
+    $result = $stmt->fetch();
+    return $result['count'];
 }
 
 function getTotalPostsCount($pdo) {
     $stmt = $pdo->query("SELECT COUNT(*) as count FROM posts");
-    return $stmt->fetch()['count'];
+    $result = $stmt->fetch();
+    return $result['count'];
 }
 
 function formatDateTime($datetime) {
