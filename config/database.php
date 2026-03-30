@@ -1,8 +1,7 @@
 <?php
 session_start();
 
-// Database credentials from Render
-$PGHOST = 'dpg-d74hh9h4tr6s73cpafn0-a';
+$PGHOST = 'dpg-d74hh9h4tr6s73cpafn0-a.oregon-postgres.render.com';
 $PGPORT = '5432';
 $PGUSER = 'bj_auto_db_user';
 $PGPASSWORD = 'SHJroyk6rwE8NALG5HWV4Ssx9RPi1pUN';
